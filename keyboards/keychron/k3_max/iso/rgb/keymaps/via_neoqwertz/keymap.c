@@ -22,7 +22,7 @@ enum layers {
     WIN_BASE,
     WIN_FN,
     NEO_1,
-    NEO_2,
+//     NEO_2,
     NEO_3,
     NEO_4,
     NEO_FN,
@@ -57,10 +57,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_ESC,  KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,  KC_F6,  KC_F7,  KC_F8,  KC_F9, KC_F10, KC_F11, KC_F12, KC_PSCR,KC_DEL, RGB_MOD,
 //   ├───────┼───────┼───────┼───────┼───────┼───────┼───────┼───────┼───────┼───────┼───────┼───────┼───────┼───────┴───────┼───────┤
 //   │ ^     │ 1     │ 2     │ 3     │ 4     │ 5     │ 6     │ 7     │ 8     │ 9     │ 0     │ ß     │ ´     │         ⌫    │ pg↑   │
-      DE_CIRC, DE_1,   DE_2,   DE_3,   DE_4,   DE_5,   DE_6,   DE_7,   DE_8,   DE_9,   DE_0,   DE_SS, DE_ACUT,     KC_BSPC,   KC_PGUP,
+      DE_CIRC, DE_1,   DE_2,   DE_3,   DE_4,   DE_5,   DE_6,   DE_7,   DE_8,   DE_9,   DE_0,   DE_SS, S(DE_ACUT),  KC_BSPC,   KC_PGUP,
 //   ├───────┴──┬────┴──┬────┴──┬────┴──┬────┴──┬────┴──┬────┴──┬─────┴─┬────┴──┬────┴──┬─────┴─┬────┴──┬────┴──┬────────────┼───────┤
 //   │ tab      │ q     │ w     │ e     │ r     │ t     │ z     │ u     │ i     │ o     │ p     │ ü     │ +     │ enter      │ pg↓   |
-      KC_TAB,     DE_Q,   DE_W,   DE_E,   DE_R,   DE_T,   DE_Y,   DE_U,   DE_I,   DE_O,   DE_P,  DE_UDIA,DE_PLUS,             KC_PGDN,
+      KC_TAB,     DE_Q,   DE_W,   DE_E,   DE_R,   DE_T,   DE_Y,   DE_U,   DE_I,   DE_O,   DE_P,  DE_UDIA,DE_ACUT,             KC_PGDN,
 //   ├──────────┴─┬─────┴─┬─────┴─┬─────┴─┬─────┴─┬─────┴─┬─────┴─┬─────┴─┬─────┴─┬─────┴─┬─────┴─┬─────┴─┬─────┴─┐          ├───────┤
 //   │ Mod3       │ a     │ s     │ d     │ f     │ g     │ h     │ j     │ k     │ l     │ ö     │ ä     │ Mod3  │          │ home  |
       MO(NEO_3),    DE_A,   DE_S,   DE_D,   DE_F,   DE_G,   DE_H,   DE_J,   DE_K,   DE_L,  DE_ODIA,DE_ADIA,MO(NEO_3), KC_ENT, KC_HOME,
@@ -73,7 +73,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //   └─────────┴─────────┴─────────┴─────────────────────────────────────────────────┴───────┴───────┴───────┴───────┴───────┴───────┘
 
 
-
+/**
+Don't explicitely define layer 2 of NeoQWERTZ, instead rely on overriding shifted keys
 [NEO_2] = LAYOUT_iso_85(
 //   ┌───────┬───────┬───────┬───────┬───────┬───────┬───────┬───────┬───────┬───────┬───────┬───────┬───────┬───────┬───────┬───────┐
 //   │esc    │ F1    │ F2    │ F3    │ F4    │ F5    │ F6    │ F7    │ F8    │ F9    │F10    │F11    │F12    │ScrS   │Del    │Light  │
@@ -94,7 +95,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //   │ctrl     │ win     │ alt     │                      space                      │ Mod4  │   fn  │ctrl   │ ←     │ ↓     │ →     │
       KC_LCTL,   KC_LGUI,  KC_LALT,                      KC_SPC,                   _______,MO(NEO_FN),KC_RCTL,KC_LEFT,KC_DOWN,KC_RGHT),
 //   └─────────┴─────────┴─────────┴─────────────────────────────────────────────────┴───────┴───────┴───────┴───────┴───────┴───────┘
-
+*/
 
 
 [NEO_3] = LAYOUT_iso_85(
@@ -163,6 +164,38 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //   │ctrl     │ win     │ alt     │                      space                      │ Mod4  │   fn  │ctrl   │ ←     │ ↓     │ →     │
       _______,   _______,  _______,                      _______,                     _______,_______,_______,_______,_______,_______)
 //   └─────────┴─────────┴─────────┴─────────────────────────────────────────────────┴───────┴───────┴───────┴───────┴───────┴───────┘
+};
+
+//Override all symbols and numbers for shift on layer 2
+const key_override_t shift_de_1_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_1, KC_NO, 2);
+const key_override_t shift_de_2_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_2, KC_NO, 2);
+const key_override_t shift_de_3_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_3, KC_NO, 2);
+const key_override_t shift_de_4_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_4, KC_NO, 2);
+const key_override_t shift_de_5_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_5, KC_NO, 2);
+const key_override_t shift_de_6_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_6, KC_NO, 2);
+const key_override_t shift_de_7_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_7, KC_NO, 2);
+const key_override_t shift_de_8_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_8, KC_NO, 2);
+const key_override_t shift_de_9_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_9, KC_NO, 2);
+const key_override_t shift_de_0_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_0, KC_NO, 2);
+const key_override_t shift_de_comm_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_COMM, KC_NO, 2);
+const key_override_t shift_de_dot_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_DOT, KC_NO, 2);
+const key_override_t shift_de_mins_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_MINS, KC_NO, 2);
+
+// This globally defines all key overrides to be used
+const key_override_t *key_overrides[] = {
+     &shift_de_1_to_noop,
+     &shift_de_2_to_noop,
+     &shift_de_3_to_noop,
+     &shift_de_4_to_noop,
+     &shift_de_5_to_noop,
+     &shift_de_6_to_noop,
+     &shift_de_7_to_noop,
+     &shift_de_8_to_noop,
+     &shift_de_9_to_noop,
+     &shift_de_0_to_noop,
+     &shift_de_comm_to_noop,
+     &shift_de_dot_to_noop,
+     &shift_de_mins_to_noop,
 };
 
 // clang-format on
