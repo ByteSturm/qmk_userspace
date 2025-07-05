@@ -136,16 +136,16 @@ Don't explicitely define layer 2 of NeoQWERTZ, instead rely on overriding shifte
       _______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,
 //   ├───────┼───────┼───────┼───────┼───────┼───────┼───────┼───────┼───────┼───────┼───────┼───────┼───────┼───────┴───────┼───────┤
 //   │       │       │       │       │       │       │       │       │       │       │       │       │       │         ⌫    │ pg↑   │
-      XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,     _______,   _______,
+      XXXXXXX,XXXXXXX,XXXXXXX,DE_SECT,DE_EURO,DE_MICR,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,XXXXXXX,     _______,   _______,
 //   ├───────┴──┬────┴──┬────┴──┬────┴──┬────┴──┬────┴──┬────┴──┬─────┴─┬────┴──┬────┴──┬─────┴─┬────┴──┬────┴──┬────────────┼───────┤
 //   │ tab      │       │ _     │ [     │ ]     │ ^     │ !     │ <     │ >     │ =     │ &     │       │       │ enter      │ pg↓   |
-       _______,  XXXXXXX,KC_UNDS,KC_LBRC,KC_RBRC,KC_CIRC,KC_EXLM,KC_LABK,KC_RABK,KC_EQL, KC_AMPR,XXXXXXX,XXXXXXX,             _______,
+       _______,  XXXXXXX,DE_UNDS,DE_LBRC,DE_RBRC,DE_CIRC,DE_EXLM,DE_LABK,DE_RABK,DE_EQL, DE_AMPR,XXXXXXX,XXXXXXX,             _______,
 //   ├──────────┴─┬─────┴─┬─────┴─┬─────┴─┬─────┴─┬─────┴─┬─────┴─┬─────┴─┬─────┴─┬─────┴─┬─────┴─┬─────┴─┬─────┴─┐          ├───────┤
 //   │ Mod3       │ \     │ /     │ {     │  }    │ *     │ ?     │ (     │ )     │ -     │ :     │ @     │ Mod3  │          │ home  |
-      _______,    KC_BSLS,KC_SLASH,KC_LCBR,KC_RCBR,KC_ASTR,KC_QUES,KC_LPRN,KC_RPRN,KC_MINUS,KC_COLON,KC_AT,_______,  _______, _______,
+      _______,     DE_BSLS,DE_SLSH,DE_LCBR,DE_RCBR,DE_ASTR,DE_QUES,DE_LPRN,DE_RPRN,DE_MINS,DE_COLN, DE_AT, _______,  _______, _______,
 //   ├─────────┬──┴────┬──┴────┬──┴────┬──┴────┬──┴────┬──┴────┬──┴────┬──┴────┬──┴────┬──┴────┬──┴────┬──┴───────┴──┬───────┼───────┤
 //   │⇧shf     │ Mod4  │ #     │ $     │ |     │ ~     │ `     │ +     │ %     │ "     │ '     │ ;     │ ⇧shf        │ ↑     │ end   |
-      _______,  _______,KC_HASH,KC_DLR,KC_PIPE,KC_TILD,KC_GRAVE,KC_PLUS,KC_PERC,KC_DQUO,KC_QUOT,KC_SCLN,  _______,    _______,_______,
+      _______,  _______,DE_HASH, DE_DLR,DE_PIPE,DE_TILD,DE_GRV, DE_PLUS,DE_PERC,DE_DQUO,DE_QUOT,DE_SCLN,  _______,    _______,_______,
 //   ├─────────┼───────┴─┬─────┴───┬───┴───────┴───────┴───────┴───────┴───────┴─────┬─┴─────┬─┴─────┬─┴─────┬───────┼───────┼───────┤
 //   │ctrl     │ win     │ alt     │                      space                      │ Mod4  │   fn  │ctrl   │ ←     │ ↓     │ →     │
       _______,   _______,  _______,                      _______,                     _______,_______,_______,_______,_______,_______),
