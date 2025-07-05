@@ -132,10 +132,10 @@ Don't explicitely define layer 2 of NeoQWERTZ, instead rely on overriding shifte
        _______,  KC_PGUP,KC_BSPC, KC_UP, KC_DEL, KC_PGDN,XXXXXXX, KC_P7,  KC_P8,  KC_P9, KC_PPLS,XXXXXXX,XXXXXXX,             _______,
 //   ├──────────┴─┬─────┴─┬─────┴─┬─────┴─┬─────┴─┬─────┴─┬─────┴─┬─────┴─┬─────┴─┬─────┴─┬─────┴─┬─────┴─┬─────┴─┐          ├───────┤
 //   │ Mod3       │ home  │ ←     │ ↓     │ →     │ end   │       │ 4     │ 5     │ 6     │ ,     │ .     │ Mod3  │          │ home  |
-      _______,     KC_HOME,KC_LEFT,KC_DOWN,KC_RGHT, KC_END,XXXXXXX, KC_P4,  KC_P5,  KC_P6, KC_PCMM,KC_PDOT,_______, _______,  _______,
+      _______,     KC_HOME,KC_LEFT,KC_DOWN,KC_RGHT, KC_END,XXXXXXX, KC_P4,  KC_P5,  KC_P6, KC_PDOT, DE_DOT,_______, _______,  _______,
 //   ├─────────┬──┴────┬──┴────┬──┴────┬──┴────┬──┴────┬──┴────┬──┴────┬──┴────┬──┴────┬──┴────┬──┴────┬──┴───────┴──┬───────┼───────┤
 //   │⇧shf     │ Mod4  │       │ tab   │       │ enter │       │ :     │ 1     │ 2     │ 3     │ ;     │ ⇧shf        │ ↑     │ end   |
-      _______,  _______,XXXXXXX, KC_TAB,XXXXXXX,KC_PENT,XXXXXXX,KC_COLON,KC_P1,  KC_P2,  KC_P3, KC_SCLN,  _______,   _______,_______,
+      _______,  _______,XXXXXXX, KC_TAB,XXXXXXX,KC_PENT,XXXXXXX,S(DE_DOT),KC_P1,  KC_P2,  KC_P3, S(DE_COMM),  _______,_______,_______,
 //   ├─────────┼───────┴─┬─────┴───┬───┴───────┴───────┴───────┴───────┴───────┴─────┬─┴─────┬─┴─────┬─┴─────┬───────┼───────┼───────┤
 //   │ctrl     │ win     │ alt     │                      space                      │ Mod4  │   fn  │ctrl   │ ←     │ ↓     │ →     │
       _______,   _______,  _______,                      _______,                     _______,_______,_______,_______,_______,_______),
