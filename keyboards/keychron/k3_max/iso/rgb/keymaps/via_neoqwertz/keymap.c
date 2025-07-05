@@ -101,7 +101,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_LSFT, MO(NEO_4),DE_Y,   DE_X,   DE_C,   DE_V,   DE_B,   DE_N,   DE_M,  DE_COMM, DE_DOT,DE_MINS,   KC_RSFT,    KC_UP,  KC_END,
 //   ├─────────┼───────┴─┬─────┴───┬───┴───────┴───────┴───────┴───────┴───────┴─────┬─┴─────┬─┴─────┬─┴─────┬───────┼───────┼───────┤
 //   │ctrl     │ win     │ alt     │                      space                      │ Mod4  │   fn  │ctrl   │ ←     │ ↓     │ →     │
-      KC_LCTL,   KC_LGUI,  KC_LALT,                      KC_SPC,                 MO(NEO_4),MO(WIN_FN),KC_RCTL,KC_LEFT,KC_DOWN,KC_RGHT),
+      KC_LCTL,   KC_LGUI,  KC_LALT,                      KC_SPC,                 MO(NEO_4),MO(NEO_FN),KC_RCTL,KC_LEFT,KC_DOWN,KC_RGHT),
 //   └─────────┴─────────┴─────────┴─────────────────────────────────────────────────┴───────┴───────┴───────┴───────┴───────┴───────┘
 
 
