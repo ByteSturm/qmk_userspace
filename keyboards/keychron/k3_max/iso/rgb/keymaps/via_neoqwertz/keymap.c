@@ -29,19 +29,19 @@ enum layers {
 };
 
 //Override all symbols and numbers for shift on layer 2
-const key_override_t shift_de_1_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_1, KC_NO, NEO_1);
-const key_override_t shift_de_2_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_2, KC_NO, NEO_1);
-const key_override_t shift_de_3_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_3, KC_NO, NEO_1);
-const key_override_t shift_de_4_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_4, KC_NO, NEO_1);
-const key_override_t shift_de_5_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_5, KC_NO, NEO_1);
-const key_override_t shift_de_6_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_6, KC_NO, NEO_1);
-const key_override_t shift_de_7_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_7, KC_NO, NEO_1);
-const key_override_t shift_de_8_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_8, KC_NO, NEO_1);
-const key_override_t shift_de_9_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_9, KC_NO, NEO_1);
-const key_override_t shift_de_0_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_0, KC_NO, NEO_1);
-const key_override_t shift_de_comm_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_COMM, KC_NO, NEO_1);
-const key_override_t shift_de_dot_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_DOT, KC_NO, NEO_1);
-const key_override_t shift_de_mins_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_MINS, KC_NO, NEO_1);
+const key_override_t shift_de_1_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_1, KC_NO, (1UL << NEO_1));
+const key_override_t shift_de_2_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_2, KC_NO, (1UL << NEO_1));
+const key_override_t shift_de_3_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_3, KC_NO, (1UL << NEO_1));
+const key_override_t shift_de_4_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_4, KC_NO, (1UL << NEO_1));
+const key_override_t shift_de_5_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_5, KC_NO, (1UL << NEO_1));
+const key_override_t shift_de_6_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_6, KC_NO, (1UL << NEO_1));
+const key_override_t shift_de_7_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_7, KC_NO, (1UL << NEO_1));
+const key_override_t shift_de_8_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_8, KC_NO, (1UL << NEO_1));
+const key_override_t shift_de_9_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_9, KC_NO, (1UL << NEO_1));
+const key_override_t shift_de_0_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_0, KC_NO, (1UL << NEO_1));
+const key_override_t shift_de_comm_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_COMM, KC_NO, (1UL << NEO_1));
+const key_override_t shift_de_dot_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_DOT, KC_NO, (1UL << NEO_1));
+const key_override_t shift_de_mins_to_noop = ko_make_with_layers(MOD_MASK_SHIFT, DE_MINS, KC_NO, (1UL << NEO_1));
 
 // This globally defines all key overrides to be used
 const key_override_t *key_overrides[] = {
