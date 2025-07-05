@@ -1,59 +1,49 @@
 # QMK Userspace
 
-This is a template repository which allows for an external set of QMK keymaps to be defined and compiled. This is useful for users who want to maintain their own keymaps without having to fork the main QMK repository.
+This repository contains my QMK keymaps for my [Keychron K3 Max keyboard](https://keychron.de/de/products/keychron-k3-max-qmk-via-wireless-custom-mechanical-keyboard-iso-layout-collection?variant=42301708140681).
+The main repository for the QMK firmware is available [here](https://github.com/qmk/qmk_firmware).
 
-## Howto configure your build targets
+Currently implemented keymaps:
+- NeoQWERTZ (no full support yet, see below)
 
-1. Run the normal `qmk setup` procedure if you haven't already done so -- see [QMK Docs](https://docs.qmk.fm/#/newbs) for details.
-1. Fork this repository
-1. Clone your fork to your local machine
-1. Enable userspace in QMK config using `qmk config user.overlay_dir="$(realpath qmk_userspace)"`
-1. Add a new keymap for your board using `qmk new-keymap`
-    * This will create a new keymap in the `keyboards` directory, in the same location that would normally be used in the main QMK repository. For example, if you wanted to add a keymap for the Planck, it will be created in `keyboards/planck/keymaps/<your keymap name>`
-    * You can also create a new keymap using `qmk new-keymap -kb <your_keyboard> -km <your_keymap>`
-    * Alternatively, add your keymap manually by placing it in the location specified above.
-    * `layouts/<layout name>/<your keymap name>/keymap.*` is also supported if you prefer the layout system
-1. Add your keymap(s) to the build by running `qmk userspace-add -kb <your_keyboard> -km <your_keymap>`
-    * This will automatically update your `qmk.json` file
-    * Corresponding `qmk userspace-remove -kb <your_keyboard> -km <your_keymap>` will delete it
-    * Listing the build targets can be done with `qmk userspace-list`
-1. Commit your changes
+## Notes for each keymap
+As stated before, all keymaps are for the [Keychron K3 Max](https://keychron.de/de/products/keychron-k3-max-qmk-via-wireless-custom-mechanical-keyboard-iso-layout-collection?variant=42301708140681). Because of that the keymaps are based on the Keychron fork of the QMK firmware. You can find the source code [here](https://github.com/Keychron/qmk_firmware/tree/wireless_playground/keyboards/keychron/k3_max).
 
-## Howto build with GitHub
+When flashing the keyboard, read the [QMK documentation](https://docs.qmk.fm/newbs_flashing) and have a look at the [Keychron guide](https://keychron.de/de/pages/how-to-factory-reset-and-flash-firmware-for-your-k3-max-keyboard).
 
-1. In the GitHub Actions tab, enable workflows
-1. Push your changes above to your forked GitHub repository
-1. Look at the GitHub Actions for a new actions run
-1. Wait for the actions run to complete
-1. Inspect the Releases tab on your repository for the latest firmware build
+The keyboard supports runtime customization with VIA, though only with the [Keychron configurator](https://launcher.keychron.com/), not with the official VIA app.
+
+### NeoQWERTZ
+The base for this layout is the [QWERTZ version](https://neo-layout.org/Layouts/neoqwertz/) of the (for german layout) ergonomical optimized [Neo layout](https://neo-layout.org/). 
+
+
+
+Attention! This implementation for QMK does not contain all symbols and layers defined by the original NeoQWERTZ layout.
+
+**Limitations:**
+- Layer 2 does not contain
+  - the symbols on the numbers
+  - the in german unused accents
+  - the longer dashes and "big" dot on comma, dot and minus
+- Layer 3 
+  - does not contain the unicode characters
+  - has the § on 3
+  - has the € on 4
+- Layer 4 does not contain the unicode characters
+- Layer 5 and 6 are fully omitted
 
 ## Howto build locally
-
-1. Run the normal `qmk setup` procedure if you haven't already done so -- see [QMK Docs](https://docs.qmk.fm/#/newbs) for details.
-1. Fork this repository
-1. Clone your fork to your local machine
-1. `cd` into this repository's clone directory
-1. Set global userspace path: `qmk config user.overlay_dir="$(realpath .)"` -- you MUST be located in the cloned userspace location for this to work correctly
-    * This will be automatically detected if you've `cd`ed into your userspace repository, but the above makes your userspace available regardless of your shell location.
-1. Compile normally: `qmk compile -kb your_keyboard -km your_keymap` or `make your_keyboard:your_keymap`
-
-Alternatively, if you configured your build targets above, you can use `qmk userspace-compile` to build all of your userspace targets at once.
-
-## Extra info
-
-If you wish to point GitHub actions to a different repository, a different branch, or even a different keymap name, you can modify `.github/workflows/build_binaries.yml` to suit your needs.
-
-To override the `build` job, you can change the following parameters to use a different QMK repository or branch:
-```
-    with:
-      qmk_repo: qmk/qmk_firmware
-      qmk_ref: master
-```
-
-If you wish to manually manage `qmk_firmware` using git within the userspace repository, you can add `qmk_firmware` as a submodule in the userspace directory instead. GitHub Actions will automatically use the submodule at the pinned revision if it exists, otherwise it will use the default latest revision of `qmk_firmware` from the main repository.
-
-This can also be used to control which fork is used, though only upstream `qmk_firmware` will have support for external userspace until other manufacturers update their forks.
-
-1. (First time only) `git submodule add https://github.com/qmk/qmk_firmware.git`
-1. (To update) `git submodule update --init --recursive`
-1. Commit your changes to your userspace repository
+1. Create a directory for QMK `mkdir qmk && cd qmk`
+1. Create a Pytohn virtual environment in this folder `python3 -m venv .venv && source .venv/bin/activate`
+1. Install QMK `python3 -m pip install qmk`
+1. Setup QMK environment `qmk setup --home ./qmk_firmware --branch wireless_playground Keychron/qmk_firmware`
+    - Allow the setup to set your QMK home to `./qmk_firmware`
+    - During development the branch above was referred by offical Keychron website but does not build with QMK userspace v1.1
+    - Use `wls_2025q1` instead, after it's merged, `wireless_playground` should also work fine
+1. Clone this repository `git clone git@github.com:ByteSturm/qmk_userspace.git`
+1. Set the QMK userspace overlay `cd qmk_userspace/ && qmk config user.overlay_dir="$(pwd)"`
+1. Verify the overlay is correctly configured `qmk config user.overlay_dir`
+1. Compile the firmware
+    - Build all `qmk userspace-compile`
+    - Build a specific keymap
+        - NeoQWERTZ `qmk compile -kb keychron/k3_max/iso/rgb -km via_neoqwertz`
