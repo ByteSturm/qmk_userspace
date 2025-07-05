@@ -11,7 +11,8 @@ jobs:
     uses: qmk/.github/.github/workflows/qmk_userspace_build.yml@main
     with:
       qmk_repo: Keychron/qmk_firmware
-      qmk_ref: wireless_playground
+      # qmk_ref: wireless_playground # does not work with userspace v1.1 yet
+      qmk_ref: wls_2025q1
 
   publish:
     name: 'QMK Userspace Publish'
