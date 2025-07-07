@@ -14,9 +14,9 @@ When flashing the keyboard, read the [QMK documentation](https://docs.qmk.fm/new
 The keyboard supports runtime customization with VIA, though only with the [Keychron configurator](https://launcher.keychron.com/), not with the official VIA app.
 
 ### NeoQWERTZ
-The base for this layout is the [QWERTZ version](https://neo-layout.org/Layouts/neoqwertz/) of the (for german layout) ergonomical optimized [Neo layout](https://neo-layout.org/). 
+The base for this layout is the [QWERTZ version](https://neo-layout.org/Layouts/neoqwertz/) of the (for german layout) ergonomical optimized [Neo layout](https://neo-layout.org/).
 
-
+Additionally, this includes also the default layout from Keychron for Windwows on layers 0 and 1. The NeoQWERTZ layout is on layers 2 and up. To switch between them, the hardware switch on the keyboard can be used.
 
 Attention! This implementation for QMK does not contain all symbols and layers defined by the original NeoQWERTZ layout.
 
